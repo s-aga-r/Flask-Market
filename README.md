@@ -1,3 +1,5 @@
+A sample app to sell and purchase products.
+
 ![home](https://user-images.githubusercontent.com/63660334/128600473-1051fdce-6e68-4f81-86a2-b699f409ab3c.png)
 
 ![login](https://user-images.githubusercontent.com/63660334/128600477-74262d11-9f2e-45e2-a6da-1f48c716a421.png)
