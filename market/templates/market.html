@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}
+Market
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8">
+        <h3>Available Items</h3>
+        <table class="table table-dark table-hover table-bordered mt-4 table-responsive">
+            <thead>
+                <tr>
+                    <th scope="col">S.No</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Barcode</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                {% include "includes/items_modals.html" %}
+                <tr>
+                    <th scope="row">{{ item.id }}</th>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.barcode }}</td>
+                    <td>{{ item.price }} &#8377;</td>
+                    <td>
+                        <button class="btn btn-outline-info" data-bs-toggle="modal"
+                            data-bs-target="#modal-more-info-{{ item.id }}">More
+                            Info</button>
+                        <button class="btn btn-outline-success" data-bs-toggle="modal"
+                            data-bs-target="#modal-purchase-{{ item.id }}">Purchase</button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="col-lg-4">
+        <h3>Owned Items</h3>
+        <div class="row mt-4">
+            {% for owned_item in owned_items %}
+            {% include "includes/owned_items_modals.html" %}
+            <div class="col-md-6">
+                <div class="card bg-dark border-warning">
+                    <div class="card-header">
+                        {{ owned_item.name }}
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            This item costs {{ owned_item.price }}&#8377
+                        </p>
+                        <button class="btn btn-outline-warning" data-bs-toggle="modal"
+                            data-bs-target="#modal-selling-{{ owned_item.id }}">Sell this Item</button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

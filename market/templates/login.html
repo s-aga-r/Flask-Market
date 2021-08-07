@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block content %}
+<h2>Login</h2>
+<div class="mt-5 col-12 col-xl-5 col-lg-6 col-md-8">
+  <form class="row g-3" method="POST">
+    {{ form.hidden_tag() }}
+    <div class="col-12">
+      {{ form.username.label(class="form-label text-capitalize") }}
+      {{ form.username(class="form-control") }}
+    </div>
+    <div class="col-12">
+      {{ form.password.label(class="form-label text-capitalize") }}
+      {{ form.password(class="form-control") }}
+    </div>
+    <div class="col-12">
+      {{ form.submit(class="btn btn-primary text-capitalize") }}
+    </div>
+    <div class="col-12">
+      <p>Don't have an account? <a href="{{ url_for('register') }}" class="text-decoration-none">Register</a></p>
+    </div>
+  </form>
+</div>
+{% endblock %}
